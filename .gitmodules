@@ -1,0 +1,6 @@
+[submodule "inc/CMB2"]
+	path = inc/CMB2
+	url = https://github.com/WebDevStudios/CMB2.git
+[submodule "inc/CMB2-Snippet-Library"]
+	path = inc/CMB2-Snippet-Library
+	url = https://github.com/WebDevStudios/CMB2-Snippet-Library.git
