@@ -4,3 +4,6 @@
 [submodule "inc/CMB2-Snippet-Library"]
 	path = inc/CMB2-Snippet-Library
 	url = https://github.com/WebDevStudios/CMB2-Snippet-Library.git
+[submodule "inc/Gamajo-Template-Loader"]
+	path = inc/Gamajo-Template-Loader
+	url = https://github.com/GaryJones/Gamajo-Template-Loader.git
