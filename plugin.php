@@ -54,6 +54,11 @@ if ( ! class_exists( 'Module_Kit', false ) ) {
 			add_action( 'init', [__CLASS__, 'bootstrap'], 20 );
 
 			# Initilize
+			require_once 'inc/CMB2/init.php';
+			require_once 'inc/abstract-module.php';
+			foreach( glob( Module_Kit_DIR . 'mod/*/module.php' ) as $module ) {
+				include_once $module;
+			}
 			# Initialization Complete.
 		}
 
