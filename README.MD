@@ -1,3 +1,3 @@
-# Plugin Suite
+# Module Kit
 
-Use this as a template for creating multipurpose plugins.
+A template for creating multipurpose plugins.
