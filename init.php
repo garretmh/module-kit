@@ -51,7 +51,7 @@ if ( ! class_exists( 'MK_Bootstrap', false ) ) {
 			require_once 'inc/CMB2/init.php';
 			include_once 'inc/class-template-loader.php';
 			include_once 'inc/class-options.php';
-			require_once 'inc/class-module.php';
+			require_once 'inc/abstract-module.php';
 			require_once 'module.php';
 			# Initialization Complete.
 		}
