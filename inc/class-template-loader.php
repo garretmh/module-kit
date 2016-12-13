@@ -23,39 +23,6 @@ if ( ! class_exists( 'MK_Template_Loader' ) ) {
 	 */
 	class MK_Template_Loader extends Gamajo_Template_Loader {
 		/**
-		 * Prefix for filter names.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var string
-		 */
-		protected $filter_prefix = 'mk';
-
-		/**
-		 * Directory name where custom templates for this plugin should be found in the theme.
-		 *
-		 * For example: 'your-plugin-templates'.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var string
-		 */
-		protected $theme_template_directory = 'templates/mod';
-
-		/**
-		 * Reference to the root directory path of this plugin.
-		 *
-		 * Can either be a defined constant, or a relative reference from where the subclass lives.
-		 *
-		 * e.g. YOUR_PLUGIN_TEMPLATE or plugin_dir_path( dirname( __FILE__ ) ); etc.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var string
-		 */
-		protected $plugin_directory = Module_Kit_DIR;
-
-		/**
 		 * Constructor
 		 *
 		 * Allows a module to choose to locate its templates within itself,
@@ -65,14 +32,18 @@ if ( ! class_exists( 'MK_Template_Loader' ) ) {
 		 *
 		 * @param null|string $module_path Relative path for a module's templates
 		 */
-		public function __construct( $module_path = null ) {
-			if ( ! is_string($module_path) )
-				return;
+		public function __construct( $args ) {
+			$a = wp_parse_args( $args, array(
+				'filter_prefix' => 'gamajo',
+				'plugin_directory' => plugin_dir_path(__FILE__),
+				'plugin_template_directory' => 'templates',
+				'theme_template_directory' => 'templates/plugin',
+			) );
 
-			// Set up our module path
-			$module_path = trim( $module_path, '\/' );
-			$this->theme_template_directory = trim( "templates/{$module_path}" );
-			$this->plugin_template_directory = trim( "{$module_path}/templates" );
+			$this->filter_prefix = $a['filter_prefix'];
+			$this->plugin_directory = $a['plugin_directory'];
+			$this->plugin_template_directory = $a['plugin_template_directory'];
+			$this->theme_template_directory = $a['theme_template_directory'];
 		}
-	}
+	} # End class.
 }
