@@ -260,7 +260,7 @@ if ( ! class_exists( 'Module_Kit', false ) ) {
 		 * @return Module_Kit_Options
 		 */
 		public function add_options_page( $args = array() ) {
-			if ( ! is_null( $this->options_page ) )
+			if ( ! is_null( $this->options_page ) || ! class_exists('MK_Options') )
 				return $this->options_page;
 
 			// Default options page args
@@ -401,7 +401,7 @@ if ( ! class_exists( 'Module_Kit', false ) ) {
 			static $is_enabled;
 			if ( is_null( $is_enabled ) ) {
 				$is_enabled = true;
-				if ( $parent = $this->parent() ) {
+				if ( ($parent = $this->parent()) && $parent->options_page ) {
 					$is_enabled = $parent->is_enabled() && $parent->get_option( $this->key );
 				}
 			}

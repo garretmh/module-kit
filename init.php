@@ -44,19 +44,13 @@ if ( ! class_exists( 'MK_Bootstrap', false ) ) {
 		 * Sets up globals and plugin hooks
 		 */
 		private function __construct() {
-			# Globally define the plugin directory path
-			$dirname = __CLASS__ . '_DIR';
-			if ( ! defined( $dirname ) ) {
-				define( $dirname, trailingslashit( dirname( __FILE__ ) ) );
-			}
-
 			# Setup hooks & shortcodes
 			add_action( 'init', [__CLASS__, 'bootstrap'], 20 );
 
 			# Initilize
 			require_once 'inc/CMB2/init.php';
-			require_once 'inc/class-template-loader.php';
-			require_once 'inc/class-options.php';
+			include_once 'inc/class-template-loader.php';
+			include_once 'inc/class-options.php';
 			require_once 'inc/class-module.php';
 			require_once 'module.php';
 			# Initialization Complete.
